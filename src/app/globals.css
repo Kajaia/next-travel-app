@@ -1,0 +1,15 @@
+.card {
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: var(--bs-dark);
+    color: var(--bs-white);
+    box-shadow: var(--bs-box-shadow);
+}
+
+.card:hover img {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
