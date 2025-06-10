@@ -8,7 +8,6 @@ export default async function Home() {
         title="Restaurants"
         link="restaurants"
         background="bg-warning"
-        containerSize="container-fluid"
       />
       <RecordList title="Sights" link="sights" />
       <RecordList title="Entertainments" link="entertainments" />
