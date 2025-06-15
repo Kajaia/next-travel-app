@@ -12,6 +12,7 @@ export default async function RecordList({
   link,
   title,
   button = true,
+  style = "my-5",
 }) {
   const params = new URLSearchParams({
     perPage: perPage || 8,
@@ -25,7 +26,7 @@ export default async function RecordList({
 
   return (
     <>
-      <div className="container my-5">
+      <div className={`container ${style}`}>
         <div className="d-flex align-items-center justify-content-between mb-3">
           <h1 className="fw-bold mb-3 text-capitalize">{title}</h1>
           {button && (
@@ -69,7 +70,10 @@ export default async function RecordList({
                           {record.category.name_en}
                         </span>
                       </p>
-                      <Link href="#!" className="stretched-link" />
+                      <Link
+                        href={`/${link}/${record.id}`}
+                        className="stretched-link"
+                      />
                     </div>
                   </div>
                 </div>
