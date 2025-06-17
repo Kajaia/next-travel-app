@@ -2,7 +2,7 @@ import Breadcrumb from "@/app/components/layout/Breadcrumb";
 import { apiUrl, headers } from "@/app/services/api";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { TbCategory2, TbMapPin } from "react-icons/tb";
+import { TbCategory2, TbMapPin, TbWorldWww } from "react-icons/tb";
 
 export async function generateMetadata({ params }) {
   const { slug, id } = await params;
@@ -58,6 +58,40 @@ export default async function Page({ params }) {
             className="mt-3"
             dangerouslySetInnerHTML={{ __html: data?.text_en }}
           />
+          <div>
+            <a
+              href={data?.website_link}
+              target="_blank"
+              className="btn btn-lg btn-danger shadow rounded-3 px-4 d-inline-flex align-items-center"
+            >
+              <TbWorldWww className="me-2" />
+              {slug === "hotels" ? "Book a hotel" : "Visit website"}
+            </a>
+            <div className="mt-4">
+              <h2 className="fs-4 fw-bold">Services</h2>
+              <div className="row g-1">
+                {data?.services && data?.services?.length > 0
+                  ? data?.services.map((service) => (
+                      <div
+                        key={service.id}
+                        className="col-12 col-md-6 col-lg-4"
+                      >
+                        <Image
+                          width={22}
+                          height={22}
+                          src={`https://intranet.infoajara.com/storage/${service.image}`}
+                          alt={service.name_en}
+                          className="service-icon"
+                        />
+                        <h3 className="fs-6 d-inline ms-2">
+                          {service.name_en}
+                        </h3>
+                      </div>
+                    ))
+                  : ""}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

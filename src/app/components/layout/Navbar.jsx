@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { TbBed } from "react-icons/tb";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3">
       <div className="container">
         <Link className="navbar-brand" href="/">
+          <TbBed style={{ fontSize: 35 }} className="me-2 text-danger" />
           Travel App
         </Link>
         <button
