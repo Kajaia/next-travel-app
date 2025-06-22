@@ -45,7 +45,7 @@ export default async function RecordList({
                   key={record.id}
                   className="col-12 col-md-6 col-lg-4 col-xl-3"
                 >
-                  <div className="card border-0 rounded-3">
+                  <div className="card card-animation border-0 rounded-3">
                     <div
                       className="position-relative w-100"
                       style={{ height: 150 }}
