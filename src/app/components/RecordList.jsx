@@ -20,7 +20,11 @@ export default async function RecordList({
     sortDirection: sortDirection || "desc",
   });
 
-  const res = await fetch(`${apiUrl}/database/${link}?${params}`, { headers });
+  const res = await fetch(`${apiUrl}/database/${link}?${params}`, {
+    headers,
+    // cache: "force-cache",
+    next: { revalidate: 1800 },
+  });
   if (!res.ok) return notFound();
   const { data: records } = await res.json();
 
