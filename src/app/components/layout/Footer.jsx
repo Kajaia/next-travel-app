@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="container pt-2 pb-3">
+    <footer className="container pt-2 pb-3 mt-auto">
       <div className="row">
         <hr />
         <div className="col-12">
