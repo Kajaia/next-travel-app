@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import Navbar from "./components/layout/Navbar";
 import Script from "next/script";
 import Footer from "./components/layout/Footer";
+import Search from "./components/Search";
 
 const poppins = Poppins({
   weight: ["200", "400", "700"],
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${poppins.className} d-flex flex-column min-vh-100`}>
         <Navbar />
+        <Search />
         {children}
         <Footer />
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" />
