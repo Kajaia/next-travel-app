@@ -4,10 +4,10 @@ export default function Loading() {
       <div className="row justify-content-center g-4">
         <div className="col-12">
           <p aria-hidden="true">
-            <span class="placeholder col-1"></span>
+            <span className="placeholder col-1"></span>
           </p>
           <p aria-hidden="true">
-            <span class="placeholder col-2"></span>
+            <span className="placeholder col-2"></span>
           </p>
         </div>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
@@ -21,10 +21,10 @@ export default function Loading() {
               />
               <div className="card-body">
                 <h2 className="fs-6 fw-bold">
-                  <span class="placeholder col-6"></span>
+                  <span className="placeholder col-6"></span>
                 </h2>
                 <p className="mb-0 d-flex align-items-center gap-3">
-                  <span class="placeholder col-5"></span>
+                  <span className="placeholder col-5"></span>
                 </p>
               </div>
             </div>
