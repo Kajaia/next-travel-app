@@ -1,4 +1,5 @@
 import Breadcrumb from "@/app/components/layout/Breadcrumb";
+import MainImage from "@/app/components/MainImage";
 import { apiUrl, headers } from "@/app/services/api";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -35,15 +36,7 @@ export default async function Page({ params }) {
             ]}
           />
           <h1 className="fw-bold mb-4">{data?.name_en}</h1>
-          <div className="position-relative w-100" style={{ height: 450 }}>
-            <Image
-              src={`https://intranet.infoajara.com/storage/${data?.image}`}
-              alt={data?.name_en}
-              fill
-              style={{ objectFit: "cover" }}
-              className="rounded-3"
-            />
-          </div>
+          <MainImage data={data} />
           <p className="mb-0 d-flex align-items-center gap-4 mt-4">
             <span className="d-flex align-items-center gap-1 fs-5">
               <TbMapPin className="text-danger" />
