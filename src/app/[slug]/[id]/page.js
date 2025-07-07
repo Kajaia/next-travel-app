@@ -37,7 +37,7 @@ export default async function Page({ params }) {
     let arr = [];
 
     for (let i = 1; i <= stars; i++) {
-      arr.push(<TbStarFilled className="text-warning fs-5" />);
+      arr.push(<TbStarFilled key={i} className="text-warning fs-5" />);
     }
 
     return arr;
@@ -134,7 +134,9 @@ export default async function Page({ params }) {
                 </div>
               </div>
             )}
-            <Map lat={data?.lat} long={data?.long} title={data?.name_en} />
+            {data?.lat && data?.long && (
+              <Map lat={data?.lat} long={data?.long} title={data?.name_en} />
+            )}
           </div>
         </div>
       </div>
