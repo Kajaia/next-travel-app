@@ -1,3 +1,4 @@
+import Gallery from "@/app/components/Gallery";
 import Breadcrumb from "@/app/components/layout/Breadcrumb";
 import MainImage from "@/app/components/MainImage";
 import Map from "@/app/components/Map";
@@ -195,6 +196,7 @@ export default async function Page({ params }) {
                 )}
               </div>
             </div>
+            {data?.gallery_id && <Gallery data={data} />}
             {data?.lat && data?.long && (
               <Map lat={data?.lat} long={data?.long} title={data?.name_en} />
             )}
