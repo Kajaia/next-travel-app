@@ -50,18 +50,27 @@ export default async function RecordList({
                   className="col-12 col-md-6 col-lg-4 col-xl-3"
                 >
                   <div className="card card-animation border-0 rounded-3">
-                    <div
-                      className="position-relative w-100"
-                      style={{ height: 150 }}
-                    >
-                      <Image
-                        src={`https://intranet.infoajara.com/storage/${record.image}`}
-                        alt={record.name_en}
-                        fill
-                        style={{ objectFit: "cover" }}
-                        className="rounded-3"
+                    {record.image ? (
+                      <div
+                        className="position-relative w-100"
+                        style={{ height: 150 }}
+                      >
+                        <Image
+                          src={`https://intranet.infoajara.com/storage/${record.image}`}
+                          alt={record.name_en}
+                          fill
+                          style={{ objectFit: "cover" }}
+                          className="rounded-3"
+                        />
+                      </div>
+                    ) : (
+                      <img
+                        src="/placeholder.png"
+                        alt="Placeholder image"
+                        style={{ objectFit: "cover", height: 150 }}
+                        className="rounded-3 w-100"
                       />
-                    </div>
+                    )}
                     <div className="card-body">
                       <h2 className="fs-6 fw-bold">{record.name_en}</h2>
                       <p className="mb-0 d-flex align-items-center gap-3">

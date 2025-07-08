@@ -11,6 +11,9 @@ import {
   TbPhone,
   TbMail,
   TbStarFilled,
+  TbDoor,
+  TbBed,
+  TbClock,
 } from "react-icons/tb";
 
 export async function generateMetadata({ params }) {
@@ -65,7 +68,7 @@ export default async function Page({ params }) {
               </span>
             )}
           </div>
-          <MainImage data={data} />
+          {data?.image && <MainImage data={data} />}
           <p className="mb-0 d-flex align-items-center gap-4 mt-4">
             <span className="d-flex align-items-center gap-1 fs-5">
               <TbMapPin className="text-danger" />
@@ -81,16 +84,33 @@ export default async function Page({ params }) {
             dangerouslySetInnerHTML={{ __html: data?.text_en }}
           />
           <div>
-            {data?.website && (
-              <a
-                href={data?.website_link}
-                target="_blank"
-                className="btn btn-lg btn-danger shadow rounded-3 px-4 d-inline-flex align-items-center"
-              >
-                <TbWorldWww className="me-2" />
-                {slug === "hotels" ? "Book a hotel" : "Visit website"}
-              </a>
-            )}
+            <div className="d-flex align-items-center justify-content-between flex-wrap">
+              {(data?.price_from || data?.price_to) && (
+                <div>
+                  {data?.price_from && (
+                    <span className="fw-bold fs-4">
+                      ₾{data?.price_from}
+                      {data?.price_to && <span>-{data?.price_to}</span>}
+                    </span>
+                  )}
+                  {slug === "hotels" ? (
+                    <small className="text-secondary"> / night</small>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              )}
+              {data?.website && (
+                <a
+                  href={data?.website_link}
+                  target="_blank"
+                  className="btn btn-lg btn-danger shadow rounded-3 px-4 d-inline-flex align-items-center"
+                >
+                  <TbWorldWww className="me-2" />
+                  {slug === "hotels" ? "Book a hotel" : "Visit website"}
+                </a>
+              )}
+            </div>
             <div className="mt-4">
               <h2 className="fs-4 fw-bold">Contact information</h2>
               <div className="row g-1">
@@ -134,6 +154,47 @@ export default async function Page({ params }) {
                 </div>
               </div>
             )}
+            <div className="mt-4">
+              <h2 className="fs-4 fw-bold">Additional information</h2>
+              <div className="row g-1">
+                {data?.rooms && (
+                  <div className="col-12">
+                    <TbDoor className="text-danger fs-5 me-1" />
+                    {data?.rooms} rooms
+                  </div>
+                )}
+                {data?.adapted_room && (
+                  <div className="col-12">
+                    <TbDoor className="text-danger fs-5 me-1" />
+                    {data?.adapted_room} adapted rooms
+                  </div>
+                )}
+                {data?.president_suite_room && (
+                  <div className="col-12">
+                    <TbDoor className="text-danger fs-5 me-1" />
+                    {data?.president_suite_room} president suite rooms
+                  </div>
+                )}
+                {data?.beds && (
+                  <div className="col-12">
+                    <TbBed className="text-danger fs-5 me-1" />
+                    {data?.beds} beds
+                  </div>
+                )}
+                {data?.check_in && data?.check_out && (
+                  <div className="col-12">
+                    <TbClock className="text-danger fs-5 me-1" />
+                    {data?.check_in}-{data?.check_out}
+                  </div>
+                )}
+                {data?.hours_from && data?.hours_to && (
+                  <div className="col-12">
+                    <TbClock className="text-danger fs-5 me-1" />
+                    {data?.hours_from}-{data?.hours_to}
+                  </div>
+                )}
+              </div>
+            </div>
             {data?.lat && data?.long && (
               <Map lat={data?.lat} long={data?.long} title={data?.name_en} />
             )}
